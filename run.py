@@ -35,9 +35,36 @@ def chosen_word():
     return random_word
 
 
+def display_game():
+    """
+    Create the hangman space,
+    Show the number of letters in the word to be guessed
+    """
+    print(
+        """
+    []==============
+    []             |
+    []
+    []
+    []
+    []
+    []
+    []
+    []
+    ==============================
+    """
+    )
+
+    random_word = chosen_word()
+    length = " _ " * len(random_word)
+    print(f"Word to be guessed (no. of letters: {len(random_word)}): {length}")
+    print(f"Guessed letters: {guessed_letters}")
+
+
 def main():
     game_instructions()
     chosen_word()
+    display_game()
 
 
 main()
