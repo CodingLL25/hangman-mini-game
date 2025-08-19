@@ -1,3 +1,5 @@
+import random
+
 # Import words from words.py
 from words import hangman_words
 
@@ -12,6 +14,7 @@ print(
 )
 
 random_word = ""
+guessed_letters = ""
 
 
 def game_instructions():
