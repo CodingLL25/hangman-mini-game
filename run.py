@@ -11,6 +11,8 @@ print(
 """
 )
 
+random_word = ""
+
 
 def game_instructions():
     """Detailed instructions for user on how to play the game"""
@@ -27,8 +29,15 @@ def game_instructions():
     )
 
 
+def chosen_word():
+    """Choose a random word"""
+    random_word = random.choice(hangman_words)
+    return random_word
+
+
 def main():
     game_instructions()
+    chosen_word()
 
 
 main()
