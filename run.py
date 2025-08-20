@@ -59,14 +59,73 @@ def display_game():
     )
 
     word = game_word
-    print(word)  # added for testing purposes
     length = " _ " * len(word)
-    print(f"Word to be guessed (no. of letters: {len(word)}): {length}")
+    print(f"Word to be guessed (no. of letters: {len(word)}): {length}\n")
+
+
+def play_game():
+    """
+    Starts the interactive hangman game.
+    Shows input for user to input their letter; with validation to prevent
+    numbers / multiple letters  / already guessed letters being entered
+
+    Checks if user guess is the the word generated in chosen_word, if yes
+    reveals the letter. If no, one life lost and part of the hangman is built
+    """
+    word = game_word
+    guessed_letters = []
+    lives = 7
+    game_won = False
+
+    while not game_won and lives > 0:
+        print("-------------------------------------------------------------\n")
+        # Allow user to enter a letter
+        guess = input("Enter your guess (one letter only):\n").strip().lower()
+
+        # makes sure one letter has been entered
+        if len(guess) == 1 and guess.isalpha():
+            # check if guess has been entered before
+            if guess in guessed_letters:
+                print(f"'{guess}' has already been guessed, try again.")
+            else:
+                guessed_letters.append(guess)
+                print(f"Guessed letters: {', '.join(guessed_letters)}\n")
+
+                # check if guess is in the word
+                if guess in word:
+                    # Show current hangman stage
+                    print(hangman_stage[7 - lives])
+                    print(f"Good guess! Letter '{guess}' is in the word.\n")
+                else:
+                    print("Incorrect guess! Try again...\n")
+                    # Decrement lives for each incorrect guess
+                    lives -= 1
+                    # Update hangman_stage only after incorrect guess
+                    print(hangman_stage[7 - lives])
+
+                if all(letter in guessed_letters for letter in word):
+                    game_won = True
+        else:
+            print(f"Invalid input: '{guess}'. Please enter a single letter.\n")
+
+        # Loop through each letter in word, if not included show underscore
+        # If correct guess reveal letter
+        # Join utilised to show spaces between letters
+        display = " ".join(
+            [letter if letter in guessed_letters else "_" for letter in word]
+        )
+        print(f"Word to be guessed (no. of letters: {len(word)}): {display}\n")
+
+    if game_won:
+        print(f"Congratulations, you have correctly guessed the word: {word}!")
+    else:
+        print(f"Better luck next time! The word was: {word}")
 
 
 def main():
     game_instructions()
     display_game()
+    play_game()
 
 
 main()
