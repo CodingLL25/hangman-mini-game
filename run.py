@@ -2,6 +2,7 @@ import random
 
 # Import words from words.py
 from words import hangman_words
+from stages import hangman_stage
 
 print(
     """
@@ -12,9 +13,6 @@ print(
 ===============================================================================
 """
 )
-
-random_word = ""
-guessed_letters = ""
 
 
 def game_instructions():
@@ -34,8 +32,10 @@ def game_instructions():
 
 def chosen_word():
     """Choose a random word"""
-    random_word = random.choice(hangman_words)
-    return random_word
+    return random.choice(hangman_words)
+
+
+game_word = chosen_word()
 
 
 def display_game():
@@ -58,15 +58,14 @@ def display_game():
     """
     )
 
-    random_word = chosen_word()
-    length = " _ " * len(random_word)
-    print(f"Word to be guessed (no. of letters: {len(random_word)}): {length}")
-    print(f"Guessed letters: {guessed_letters}")
+    word = game_word
+    print(word)  # added for testing purposes
+    length = " _ " * len(word)
+    print(f"Word to be guessed (no. of letters: {len(word)}): {length}")
 
 
 def main():
     game_instructions()
-    chosen_word()
     display_game()
 
 
