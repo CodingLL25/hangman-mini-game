@@ -3,22 +3,15 @@ import random
 # Import words from words.py
 from words import hangman_words
 from stages import hangman_stage
-
-print(
-    """
-===============================================================================
-|                                                                             |
-|                             Welcome to Hangman!                             |
-|                                                                             |
-===============================================================================
-"""
-)
+from constants import *
 
 
 def game_instructions():
     """Detailed instructions for user on how to play the game"""
     print(
         """
+
+    Here are the games instructions:
     1. A random word has been generated, you'll need to guess the word one
     letter at a time, before you run out of lives.\n
     2. For each incorrect answer, parts of your hangman will appear.\n
@@ -43,21 +36,6 @@ def display_game():
     Create the hangman space,
     Show the number of letters in the word to be guessed
     """
-    print(
-        """
-    []==============
-    []             |
-    []
-    []
-    []
-    []
-    []
-    []
-    []
-    ==============================
-    """
-    )
-
     word = game_word
     length = " _ " * len(word)
     print(f"Word to be guessed (no. of letters: {len(word)}): {length}\n")
@@ -130,9 +108,29 @@ def play_game():
 
 
 def main():
-    game_instructions()
-    display_game()
-    play_game()
+    welcome_message()
+    user_choice = input("Enter your choice (number 1 to 3):\n")
+
+    while True:
+        if user_choice == "1":
+            game_instructions()
+            display_game()
+            play_game()
+            break
+        elif user_choice == "2":
+            display_game()
+            play_game()
+            break
+        elif user_choice == "3":
+            print("See you next time!!!!")
+            break
+        else:
+            print(
+                f"""
+                You have entered {user_choice}.
+                
+                You must enter 1, 2 or 3 to continue"""
+            )
 
 
 main()
