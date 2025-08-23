@@ -93,22 +93,20 @@ def play_game():
 
                 # check if guess is in the word
                 if guess in word:
-                    hangman_stage(7 - lives)
                     print(
                         f"""
                     Good guess! Letter '{guess}' is in the word.
 
-                    {hangman_stage}
+                    {hangman_stage[7 - lives]}
                     """
                     )
                 else:
                     lives -= 1
-                    hangman_stage(7 - lives)
                     print(
                         f"""
-                    Incorrect guess! Try again...
+                Incorrect guess! Try again...
 
-                    {hangman_stage}
+                    {hangman_stage[7 - lives]}
                     """
                     )
 
