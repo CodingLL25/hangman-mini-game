@@ -11,14 +11,14 @@ def game_instructions():
     print(
         """
 
-    Here are the games instructions:
-    1. A random word has been generated, you'll need to guess the word one
-    letter at a time, before you run out of lives.\n
-    2. For each incorrect answer, parts of your hangman will appear.\n
-    3. When the hangman is complete, you have lost the game! Guess the word
+Here are the games instructions:\n
+1. A random word has been generated, you'll need to guess the word one
+letter at a time, before you run out of lives.\n
+2. For each incorrect answer, parts of your hangman will appear.\n
+3. When the hangman is complete, you have lost the game! Guess the word
     correctly before your hangman has built, and you've won the game!\n
 
-    Time to start playing...
+Time to start playing...
     """
     )
 
@@ -109,28 +109,30 @@ def play_game():
 
 def main():
     welcome_message()
-    user_choice = input("Enter your choice (number 1 to 3):\n")
 
     while True:
-        if user_choice == "1":
-            game_instructions()
-            display_game()
-            play_game()
-            break
-        elif user_choice == "2":
-            display_game()
-            play_game()
-            break
-        elif user_choice == "3":
-            print("See you next time!!!!")
-            break
+        choice = input("Enter a number to proceed:\n").strip()
+
+        if choice.isdigit():
+            chosen_step = int(choice)
+            if chosen_step == 1:
+                game_instructions()
+                display_game()
+                print(hangman_stage[0])
+                play_game()
+                break
+            elif chosen_step == 2:
+                display_game()
+                print(hangman_stage[0])
+                play_game()
+                break
+            elif chosen_step == 3:
+                print("See you next time!!!!")
+                break
+            else:
+                print("Please enter 1, 2 or 3.")
         else:
-            print(
-                f"""
-                You have entered {user_choice}.
-                
-                You must enter 1, 2 or 3 to continue"""
-            )
+            print(f"You have entered '{choice}'. Please enter 1-3 to continue")
 
 
 main()
