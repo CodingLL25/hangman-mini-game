@@ -104,7 +104,7 @@ def play_game():
                     lives -= 1
                     print(
                         f"""
-                Incorrect guess! Try again...
+                    Incorrect guess! Try again...
 
                     {hangman_stage[7 - lives]}
                     """
@@ -113,7 +113,7 @@ def play_game():
                 if all(letter in guessed_letters for letter in word):
                     game_won = True
         else:
-            print(f"Invalid input: '{guess}'. Please enter a single letter.\n")
+            print("You entered: '{guess}'. Please enter a single letter.\n")
 
         # Loop through each letter in word, if not included show underscore
         # If correct guess reveal letter
