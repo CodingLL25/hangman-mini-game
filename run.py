@@ -108,6 +108,13 @@ def play_game():
 
 
 def main():
+    """
+    Shows welcome message
+    Allows user to decide how to proceed:
+        1 = instructions
+        2 = proceed to the game
+        3 = exit the game
+    """
     welcome_message()
 
     while True:
