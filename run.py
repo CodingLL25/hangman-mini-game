@@ -93,15 +93,24 @@ def play_game():
 
                 # check if guess is in the word
                 if guess in word:
-                    # Show current hangman stage
-                    print(hangman_stage[7 - lives])
-                    print(f"Good guess! Letter '{guess}' is in the word.\n")
+                    hangman_stage(7 - lives)
+                    print(
+                        f"""
+                    Good guess! Letter '{guess}' is in the word.
+
+                    {hangman_stage}
+                    """
+                    )
                 else:
-                    print("Incorrect guess! Try again...\n")
-                    # Decrement lives for each incorrect guess
                     lives -= 1
-                    # Update hangman_stage only after incorrect guess
-                    print(hangman_stage[7 - lives])
+                    hangman_stage(7 - lives)
+                    print(
+                        f"""
+                    Incorrect guess! Try again...
+
+                    {hangman_stage}
+                    """
+                    )
 
                 if all(letter in guessed_letters for letter in word):
                     game_won = True
