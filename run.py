@@ -28,20 +28,16 @@ def chosen_word():
     return random.choice(hangman_words)
 
 
-game_word = chosen_word()
-
-
-def display_game():
+def display_game(word):
     """
     Create the hangman space,
     Show the number of letters in the word to be guessed
     """
-    word = game_word
     length = " _ " * len(word)
     print(f"Word to be guessed (no. of letters: {len(word)}): {length}\n")
 
 
-def play_game():
+def play_game(word):
     """
     Starts the interactive hangman game.
     Shows input for user to input their letter; with validation to prevent
@@ -50,7 +46,6 @@ def play_game():
     Checks if user guess is the the word generated in chosen_word, if yes
     reveals the letter. If no, one life lost and part of the hangman is built
     """
-    word = game_word
     guessed_letters = []
     lives = 7
     game_won = False
@@ -99,7 +94,7 @@ def play_game():
 
     if game_won is True or lives == 0:
         main_menu = input("Enter any key to go back to the main menu:\n")
-        if main_menu == "":
+        if main_menu:
             main()
 
 
@@ -115,19 +110,20 @@ def main():
 
     while True:
         choice = input("Enter a number to proceed:\n").strip()
+        word = chosen_word()
 
         if choice.isdigit():
             chosen_step = int(choice)
             if chosen_step == 1:
                 game_instructions()
-                display_game()
+                display_game(word)
                 print(hangman_stage[0])
-                play_game()
+                play_game(word)
                 break
             elif chosen_step == 2:
-                display_game()
+                display_game(word)
                 print(hangman_stage[0])
-                play_game()
+                play_game(word)
                 break
             elif chosen_step == 3:
                 print("That's a shame... See you next time!!!!")
