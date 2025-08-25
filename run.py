@@ -55,7 +55,7 @@ def play_game():
     lives = 7
     game_won = False
 
-    while not game_won and lives > 0:
+    while lives > 0:
         print("------------------------------------------------------------\n")
         # Allow user to enter a letter
         guess = input("Enter your guess (one letter only):\n").strip().lower()
@@ -68,43 +68,39 @@ def play_game():
             else:
                 guessed_letters.append(guess)
                 print(f"Guessed letters: {', '.join(guessed_letters)}\n")
-
-                # check if guess is in the word
-                if guess in word:
-                    print(
-                        f"""
-                    Good guess! Letter '{guess}' is in the word.
-
-                    {hangman_stage[7 - lives]}
-                    """
-                    )
-                else:
-                    lives -= 1
-                    print(
-                        f"""
+            # check if guess is in the word
+            if guess in word:
+                print(
+                    f"""Good guess! Letter '{guess}' is in the word.
+                {hangman_stage[7 - lives]}"""
+                )
+            else:
+                lives -= 1
+                print(
+                    f"""
                     Incorrect guess! Try again...
-
-                    {hangman_stage[7 - lives]}
-                    """
-                    )
-
-                if all(letter in guessed_letters for letter in word):
-                    game_won = True
+                    {hangman_stage[7 - lives]}"""
+                )
+            if all(letter in guessed_letters for letter in word):
+                game_won = True
+                break
         else:
-            print("You entered: '{guess}'. Please enter a single letter.\n")
+            print(f"You entered: '{guess}'. Please enter a single letter.\n")
 
-        # Loop through each letter in word, if not included show underscore
-        # If correct guess reveal letter
-        # Join utilised to show spaces between letters
         display = " ".join(
             [letter if letter in guessed_letters else "_" for letter in word]
         )
         print(f"Word to be guessed (no. of letters: {len(word)}): {display}\n")
 
     if game_won:
-        print(f"Congratulations, you have correctly guessed the word: {word}!")
+        print(f"""Congratulations, the word was '{word}'!\n""")
     else:
-        print(f"Better luck next time! The word was: {word}")
+        print(f" Better luck next time! The word was: {word}.\n")
+
+    if game_won == True or lives == 0:
+        main_menu = input("Enter any key to go back to the main menu:\n")
+        if main_menu == "":
+            main()
 
 
 def main():
@@ -134,7 +130,7 @@ def main():
                 play_game()
                 break
             elif chosen_step == 3:
-                print("See you next time!!!!")
+                print("That's a shame... See you next time!!!!")
                 break
             else:
                 print("Please enter 1, 2 or 3.")
