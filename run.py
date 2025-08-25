@@ -97,7 +97,7 @@ def play_game():
     else:
         print(f" Better luck next time! The word was: {word}.\n")
 
-    if game_won == True or lives == 0:
+    if game_won is True or lives == 0:
         main_menu = input("Enter any key to go back to the main menu:\n")
         if main_menu == "":
             main()
