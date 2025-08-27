@@ -1,6 +1,7 @@
 import random
 
-# Import words from words.py
+from colorama import Fore
+
 from words import hangman_words
 from stages import hangman_stage
 from constants import *
@@ -51,7 +52,7 @@ def play_game(word):
     game_won = False
 
     while lives > 0:
-        print("------------------------------------------------------------\n")
+        print("------------------------------------------------\n")
         # Allow user to enter a letter
         guess = input("Enter your guess (one letter only):\n").strip().lower()
 
@@ -59,41 +60,46 @@ def play_game(word):
         if len(guess) == 1 and guess.isalpha():
             # check if guess has been entered before
             if guess in guessed_letters:
-                print(f"'{guess}' has already been guessed, try again.")
+                print(Fore.RED + f"'{guess}' has already been guessed.")
             else:
                 guessed_letters.append(guess)
                 print(f"Guessed letters: {', '.join(guessed_letters)}\n")
             # check if guess is in the word
             if guess in word:
-                print(
-                    f"""Good guess! Letter '{guess}' is in the word.
-                {hangman_stage[7 - lives]}"""
+                print(  # new addition means hangman = green not just the word
+                    Fore.GREEN
+                    + f"""Good guess! Letter '{guess}' is in the word.
+                    {Fore.RESET + hangman_stage[7 - lives]}"""
                 )
             else:
                 lives -= 1
                 print(
-                    f"""
+                    Fore.RED
+                    + f"""
                     Incorrect guess! Try again...
-                    {hangman_stage[7 - lives]}"""
+                    {Fore.RESET + hangman_stage[7 - lives]}"""
                 )
             if all(letter in guessed_letters for letter in word):
                 game_won = True
                 break
         else:
-            print(f"You entered: '{guess}'. Please enter a single letter.\n")
+            print(Fore.RED + f"Single letters only, you entered:'{guess}'.\n")
 
         display = " ".join(
             [letter if letter in guessed_letters else "_" for letter in word]
         )
-        print(f"Word to be guessed (no. of letters: {len(word)}): {display}\n")
+        print(
+            Fore.RESET
+            + f"Word to be guessed (no. of letters: {len(word)}): {display}\n"
+        )
 
     if game_won:
-        print(f"""Congratulations, the word was '{word}'!\n""")
+        print(Fore.GREEN + f"""Congratulations, the word was '{word}'!\n""")
     else:
-        print(f" Better luck next time! The word was: {word}.\n")
+        print(Fore.RED + f" Better luck next time! The word was: {word}.\n")
 
     if game_won is True or lives == 0:
-        main_menu = input("Enter any key to go back to the main menu:\n")
+        main_menu = input(Fore.RESET + "Enter any key to go to main menu:\n")
         if main_menu:
             main()
 
@@ -106,10 +112,11 @@ def main():
         2 = proceed to the game
         3 = exit the game
     """
+
     welcome_message()
 
     while True:
-        choice = input("Enter a number to proceed:\n").strip()
+        choice = input(Fore.RESET + "Enter a number to proceed:\n").strip()
         word = chosen_word()
 
         if choice.isdigit():
@@ -126,12 +133,12 @@ def main():
                 play_game(word)
                 break
             elif chosen_step == 3:
-                print("That's a shame... See you next time!!!!")
+                print(Fore.RED + "That's a shame... See you next time!!!!")
                 break
             else:
                 print("Please enter 1, 2 or 3.")
         else:
-            print(f"You have entered '{choice}'. Please enter 1-3 to continue")
+            print(f"You entered '{choice}'. Enter 1-3 to continue")
 
 
 main()
