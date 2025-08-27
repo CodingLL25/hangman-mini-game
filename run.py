@@ -25,7 +25,7 @@ Time to start playing...
 
 
 def chosen_word():
-    """Choose a random word"""
+    """Choose a random word from hangman words"""
     return random.choice(hangman_words)
 
 
@@ -60,7 +60,11 @@ def play_game(word):
         if len(guess) == 1 and guess.isalpha():
             # check if guess has been entered before
             if guess in guessed_letters:
-                print(Fore.RED + f"'{guess}' has already been guessed.")
+                print(
+                    Fore.RED
+                    + f"""
+                    '{guess}' has already been guessed."""
+                )
             else:
                 guessed_letters.append(guess)
                 print(f"Guessed letters: {', '.join(guessed_letters)}\n")
@@ -68,7 +72,8 @@ def play_game(word):
             if guess in word:
                 print(  # new addition means hangman = green not just the word
                     Fore.GREEN
-                    + f"""Good guess! Letter '{guess}' is in the word.
+                    + f"""
+                    Good guess! Letter '{guess}' is in the word.
                     {Fore.RESET + hangman_stage[7 - lives]}"""
                 )
             else:
