@@ -69,7 +69,7 @@ def play_game(word):
                 guessed_letters.append(guess)
                 print(f"Guessed letters: {', '.join(guessed_letters)}\n")
             # check if guess is in the word
-            if guess in word:
+            if guess in word and guess not in guessed_letters:
                 print(  # new addition means hangman = green not just the word
                     Fore.GREEN
                     + f"""
@@ -101,7 +101,7 @@ def play_game(word):
     if game_won:
         print(Fore.GREEN + f"""Congratulations, the word was '{word}'!\n""")
     else:
-        print(Fore.RED + f" Better luck next time! The word was: {word}.\n")
+        print(Fore.RED + f"""Better luck next time! The word was: {word}.\n""")
 
     if game_won is True or lives == 0:
         main_menu = input(Fore.RESET + "Enter any key to go to main menu:\n")
