@@ -1,1 +1,2 @@
 # No requirements generated following use of pip3 freeze > requirements.txt
+colorama==0.4.6
