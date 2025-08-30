@@ -1,11 +1,16 @@
+from colorama import Fore
+
+
 def welcome_message():
     print(
-        """
+        Fore.RESET
+        + """
 ===============================================================================
 |                                                                             |
 |                             Welcome to Hangman!                             |
 |                                                                             |
 ===============================================================================
+
 
 Enter 1 to see the instructions, 2 to start the game, or 3 to exit the game.\n
 """
