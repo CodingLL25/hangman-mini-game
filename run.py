@@ -16,7 +16,7 @@ def generate_word():
         print(
             Fore.RESET
             + """
-        Categories of words available: 1-animals, 2-movies, 3-flowers"""
+Categories of words available: 1-animals, 2-movies, 3-flowers"""
         )
 
         category_choice = input("Choose your category (1, 2 or 3):\n").strip()
