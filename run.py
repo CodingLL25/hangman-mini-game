@@ -9,7 +9,10 @@ from constants import *
 
 def generate_word():
     """
-    Allow user to input category of interest"""
+    Allow player to input category of interest.
+    Confirms the chosen category for the hangman game.
+    Generates random word to be guessed, and shows number of letters in the
+    word to be guessed as well as underscores per letter."""
     categories = {1: "animals", 2: "movies", 3: "flowers"}
 
     while True:
@@ -45,8 +48,7 @@ def play_game(word):
     Starts the interactive hangman game.
     Shows input for user to input their letter; with validation to prevent
     numbers / multiple letters  / already guessed letters being entered
-
-    Checks if user guess is the the word generated in chosen_word, if yes
+    Checks if user guess is the the word generated in generate_word, if yes
     reveals the letter. If no, one life lost and part of the hangman is built
     """
     guessed_letters = []
