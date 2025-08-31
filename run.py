@@ -10,7 +10,8 @@ from constants import *
 def game_instructions():
     """Detailed instructions for user on how to play the game"""
     print(
-        """
+        Fore.RESET
+        + """
 
 Here are the games instructions:\n
 1. A random word has been generated, you'll need to guess the word one
@@ -24,18 +25,32 @@ Time to start playing...
     )
 
 
-def chosen_word():
-    """Choose a random word from hangman words"""
-    return random.choice(hangman_words)
-
-
-def display_game(word):
+def generate_word():
     """
-    Create the hangman space,
-    Show the number of letters in the word to be guessed
-    """
-    length = " _ " * len(word)
-    print(f"Word to be guessed (no. of letters: {len(word)}): {length}\n")
+    Allow user to input category of interest"""
+    categories = {1: "animals", 2: "movies", 3: "flowers"}
+
+    while True:
+        print(Fore.RESET + "Choose a category: 1-animals, 2-movies, 3-flowers")
+
+        category_choice = input("Chosen category (1, 2 or 3):\n").strip()
+        if category_choice.isdigit():
+            category_number = int(category_choice)
+
+            if category_number in categories:
+                selected_category = categories[category_number]
+                word = random.choice(hangman_words[selected_category])
+                length = " _ " * len(word)
+                print(
+                    Fore.CYAN
+                    + f"""You chose {selected_category}
+                Word to be guessed (no. of letters: {len(word)}): {length}\n"""
+                )
+                return word
+            else:
+                print(Fore.RED + "Please enter 1, 2 or 3 to continue.")
+        else:
+            print(Fore.RED + "Please enter 1, 2 or 3 to continue.")
 
 
 def play_game(word):
@@ -60,11 +75,7 @@ def play_game(word):
         if len(guess) == 1 and guess.isalpha():
             # check if guess has been entered before
             if guess in guessed_letters:
-                print(
-                    Fore.RED
-                    + f"""
-                    '{guess}' has already been guessed."""
-                )
+                print(Fore.RED + f"'{guess}' has already been guessed.")
             else:
                 guessed_letters.append(guess)
                 print(f"Guessed letters: {', '.join(guessed_letters)}\n")
@@ -74,6 +85,7 @@ def play_game(word):
                     Fore.GREEN
                     + f"""
                     Good guess! Letter '{guess}' is in the word.
+
                     {Fore.RESET + hangman_stage[7 - lives]}"""
                 )
             else:
@@ -82,6 +94,7 @@ def play_game(word):
                     Fore.RED
                     + f"""
                     Incorrect guess! Try again...
+
                     {Fore.RESET + hangman_stage[7 - lives]}"""
                 )
             if all(letter in guessed_letters for letter in word):
@@ -122,28 +135,27 @@ def main():
 
     while True:
         choice = input(Fore.RESET + "Enter a number to proceed:\n").strip()
-        word = chosen_word()
 
         if choice.isdigit():
             chosen_step = int(choice)
             if chosen_step == 1:
                 game_instructions()
-                display_game(word)
-                print(hangman_stage[0])
+                word = generate_word()
+                print(Fore.RESET + hangman_stage[0])
                 play_game(word)
                 break
             elif chosen_step == 2:
-                display_game(word)
-                print(hangman_stage[0])
+                word = generate_word()
+                print(Fore.RESET + hangman_stage[0])
                 play_game(word)
                 break
             elif chosen_step == 3:
                 print(Fore.RED + "That's a shame... See you next time!!!!")
                 break
             else:
-                print("Please enter 1, 2 or 3.")
+                print(Fore.RED + "Please enter 1, 2 or 3.")
         else:
-            print(f"You entered '{choice}'. Enter 1-3 to continue")
+            print(Fore.RED + f"You entered '{choice}'. Enter 1-3 to continue")
 
 
 main()
