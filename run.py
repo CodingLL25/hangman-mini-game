@@ -13,9 +13,13 @@ def generate_word():
     categories = {1: "animals", 2: "movies", 3: "flowers"}
 
     while True:
-        print(Fore.RESET + "Choose a category: 1-animals, 2-movies, 3-flowers")
+        print(
+            Fore.RESET
+            + """
+        Categories of words available: 1-animals, 2-movies, 3-flowers"""
+        )
 
-        category_choice = input("Chosen category (1, 2 or 3):\n").strip()
+        category_choice = input("Choose your category (1, 2 or 3):\n").strip()
         if category_choice.isdigit():
             category_number = int(category_choice)
 
