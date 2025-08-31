@@ -7,24 +7,6 @@ from stages import hangman_stage
 from constants import *
 
 
-def game_instructions():
-    """Detailed instructions for user on how to play the game"""
-    print(
-        Fore.RESET
-        + """
-
-Here are the games instructions:\n
-1. A random word has been generated, you'll need to guess the word one
-letter at a time, before you run out of lives.\n
-2. For each incorrect answer, parts of your hangman will appear.\n
-3. When the hangman is complete, you have lost the game! Guess the word
-    correctly before your hangman has built, and you've won the game!\n
-
-Time to start playing...
-    """
-    )
-
-
 def generate_word():
     """
     Allow user to input category of interest"""
@@ -44,7 +26,8 @@ def generate_word():
                 print(
                     Fore.CYAN
                     + f"""You chose {selected_category}
-                Word to be guessed (no. of letters: {len(word)}): {length}\n"""
+
+Word to be guessed (no. of letters: {len(word)}): {length}\n"""
                 )
                 return word
             else:
@@ -126,9 +109,9 @@ def main():
     """
     Shows welcome message
     Allows user to decide how to proceed:
-        1 = instructions
-        2 = proceed to the game
-        3 = exit the game
+    If 1 selected, user shown instructions then asked to choose word category
+    If 2 selected, user asked to choose word category
+    If 3, user exits the game
     """
 
     welcome_message()
