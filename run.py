@@ -16,7 +16,7 @@ def generate_word():
         print(
             Fore.RESET
             + """
-Categories of words available: 1-animals, 2-movies, 3-flowers"""
+Categories of words available: 1-animals, 2-movies, 3-flowers\n"""
         )
 
         category_choice = input("Choose your category (1, 2 or 3):\n").strip()
@@ -66,27 +66,28 @@ def play_game(word):
             else:
                 guessed_letters.append(guess)
                 print(f"Guessed letters: {', '.join(guessed_letters)}\n")
-            # check if guess is in the word
-            if guess in word and guess not in guessed_letters:
-                print(  # new addition means hangman = green not just the word
-                    Fore.GREEN
-                    + f"""
-                    Good guess! Letter '{guess}' is in the word.
+                # check if guess is in the word
+                if guess in word:
+                    print(
+                        Fore.GREEN
+                        + f"""
+                Good guess! Letter '{guess}' is in the word.
 
-                    {Fore.RESET + hangman_stage[7 - lives]}"""
-                )
-            else:
-                lives -= 1
-                print(
-                    Fore.RED
-                    + f"""
-                    Incorrect guess! Try again...
+                {Fore.RESET + hangman_stage[7 - lives]}"""
+                    )
+                else:
+                    lives -= 1
+                    print(
+                        Fore.RED
+                        + f"""
+                Incorrect guess! '{guess}' is not in the word, try again...
 
-                    {Fore.RESET + hangman_stage[7 - lives]}"""
-                )
-            if all(letter in guessed_letters for letter in word):
-                game_won = True
-                break
+                {Fore.RESET + hangman_stage[7 - lives]}"""
+                    )
+
+                if all(letter in guessed_letters for letter in word):
+                    game_won = True
+                    break
         else:
             print(Fore.RED + f"Single letters only, you entered:'{guess}'.\n")
 
