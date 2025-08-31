@@ -128,12 +128,14 @@ def main():
             chosen_step = int(choice)
             if chosen_step == 1:
                 game_instructions()
-                word = generate_word().lower()
+                word = generate_word()
+                word.lower()
                 print(Fore.RESET + hangman_stage[0])
                 play_game(word)
                 break
             elif chosen_step == 2:
-                word = generate_word().lower()
+                word = generate_word()
+                word.lower()
                 print(Fore.RESET + hangman_stage[0])
                 play_game(word)
                 break
