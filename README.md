@@ -8,28 +8,32 @@
   - Allow users to test their knowledge within three categories (types of animals, movies and types of flowers)
 
 ## How to play:
-  1. Click this "[link](https://hangman-mini-game-365dbf261cd0.herokuapp.com/)"
-  2. As soon as the page has loaded, click "RUN PROGRAM"
+The overarching aim of this game is for the player (you) to guess all of the letters of a word, which has been chosen at random from your selected category. You must guess all the letters before your man has been hanged. Once the game has been won or loss, the player has the option to loop through more words within the category or choose a new category.
+
+Overview provided below:
+  1. Click this "[link](https://hangman-mini-game-365dbf261cd0.herokuapp.com/)".
+  2. As soon as the page has loaded, click "RUN PROGRAM".
   3. Enter a number, from 1 - 3 to proceed. 
-  - If you've selected 1, the instructions will appear, and then you will be asked to choose a category
-  - If you've selected 2, you will skip over the instructions and be asked to choose a category
-  - If you've selected 3, you will exit the game
-  4. Enter a number from 1 - 3, 1 = animals, 2 = movies and 3 = flowers
+  - If you've entered 1, the instructions will appear, and then you will be asked to choose a category.
+  - If you've entered 2, you will skip over the instructions and be asked to choose a category.
+  - If you've entered 3, you will exit the game.
+  4. Enter a number from 1 to 3, 1 for animals, 2 for movies and 3 for flowers.
   5. The hangman stage will appear, and a random word will be generated, with the number of letters shown on the screen
   6. Guess a single letter at a time:
-  - For each incorrect guess, your hangman will build
-  - For each correct guess, the blank "_" in the word will be replaced with the letter
-  7. If all lives are used, you've lost the game! Alternatively, if you guess all letters
+  - For each incorrect guess, your hangman will build.
+  - For each correct guess, the blank "_" in the word will be replaced with the letter.
+  7. If all lives are used, you've lost the game! Alternatively, if you guess all letters.
   correctly before your lives run out, you've won the game!
-  8. After the game has been completed (win or lose), enter any key
+  8. After the game has been completed (win or lose), enter any key to loop back to the welcome message.
 
 ## User Stories
 ### First Time Visiter Goals:
   __As a First Time Visitor...__
   - I want to be able to understand the programs primary purpose
   - I want to be able to navigate through the program easily 
-  - I want to be able to interact with the programw ith ease
-  - I want to see visual effects to stay engaged
+  - I want to be able to interact with the program with ease
+  - I want to see visual effects to stay engaged (i.e. use of colors)
+  - I want to be kept up to date of my progress (correctly guessed letters, incorrect guesses)
 ### Frequent Visitor Goals:
   __As Frequent Visitor...__
   - I want to be able to guess different words
@@ -61,7 +65,8 @@
 
   - __When the user chooses a category__
 
-    Once the category has been chosen, the user will be shown the category chosen for playing, the number of letters in the word to be guessed and the hangman stage. They are asked to guess a single letter at a time.
+    Once the category has been chosen, the user will be shown the category chosen for playing, the number of letters in 
+    the word to be guessed and the hangman stage. They are asked to guess a single letter at a time.
 
     ![An image of the game area (word to be guessed, hangman stage)](documentation/game_area.png)
 
@@ -69,13 +74,17 @@
 
     The user is able to see an input for entering their guess, as well as seeing their previous guesses.
 
-    For each incorrect guess, then hangman is built. For each correct guess, the letter is shown in the word.
-      - Error messages shown if incorrect guess in red, or if the letter has been guessed before.
+    For each incorrect guess, then hangman is built, and error messages shown if incorrect guess in red, or if the 
+    letter has been guessed before.
     ![An image of the hangman builing for an incorrect guess](documentation/incorrect_guess.png)
     ![An image of the error message for a letter already guessed](documentation/already_guessed.png)
-    - Correct guesses shown in green
+
+    For each correct guess, a message appears confirming the letter is in the word (shown in green) and the letter is 
+    revealed in the word.
     ![hangman_correct_guess](documentation/correct_guess.png)
     
+  
+
 ## Flowchart
   The flowchart represents the logic of the program
 
@@ -84,7 +93,8 @@
 ## Technologies Used
 
 ### Languages: (DOUBLE CHECK)
-- [Python 3.12.2](https://www.python.org/downloads/release/python-3122/): used to anchor the project and direct all application behavior
+- [Python 3.12.2](https://www.python.org/downloads/release/python-3122/): used to anchor the project and direct all 
+application behavior
 
 ### Frameworks/Libraries, Programmes and Tools:
 #### Python modules/packages:
@@ -120,56 +130,59 @@
 ### Validation
 Code was passed through [CI Python Linter](https://pep8ci.herokuapp.com/#) with no errors.
 
-![An image of the CI Python Linter validation](documentation/ci-python-linter-validation.png)
+![An image of the CI Python Linter validation](documentation/ci_python_linter_validation.png)
 
-## Deployment (double check this section)
-### To deploy the project to Heroku so it can be run as a remote web application: 
-- Clone the repository:
-  1. Open a folder on your computer with the terminal.
-    Run the following command
-  - `git clone https://github.com/CodingLL25/hangman-mini-game.git .`
+## Deployment
+The Code Institute provided a [P3 template](https://github.com/Code-Institute-Org/p3-template) in Git Hub, which 
+enabled deployment of the project to a mock terminal in Heroku. To do this, I followed the instructions provided for 
+the Love Sandwiches Essential Project Walkthrough.
 
-  Create your own GitHub repository to host the code, in this instance, "hangman-mini-game"
+  1. Create a new folder with the name of your program or game in VScode
 
-  2. Push the files to your repository with the following command:
+  2. Create a new repository in GitHub using the P3 template provided by the Code Institute.
+
+  3. Clone the repository and set up the project in VS code by running the following command in the terminal:
+      - `git clone https://github.com/CodingLL25/hangman-mini-game.git .`
+
+
+  4. Push the files to your repository with the following command:
   `git push`
-    - Create a Heroku account if you don't already have one here [Heroku](https://dashboard.heroku.com).
-    - Create a new Heroku application on the following page here [New Heroku App](https://dashboard.heroku.com/apps):
+      - Create a Heroku account if you don't already have one here [Heroku](https://dashboard.heroku.com).
+      - Create a new Heroku application on the following page here [New Heroku App](https://dashboard.heroku.com/apps):
 
-  3. Go to the Settings tab:
+  5. Go to the Settings tab:
 
-    - Click "Add buildpack":
+  - Click "Add buildpack":
     
-    Add the Python and Node.js buildpacks in the following order:
+    - Add the Python buildpack first, followed by Node.js: 
 
-      - ![Add Python and Node.js]
+      ![An image of the Python and Node.js buildpacks in Heroku](documentation/heroku_buildpacks.png)
 
     - Click "Reveal Config Vars.":
         Add 1 new Config Vars:
         - Key: PORT Value: 8000
         - *This Config was provided by [CODE INSTITUTE](https://codeinstitute.net/)*.
 
-      - ![Reveal Config Vars]
+      ![An image of the Config Vars in Heroku](documentation/heroku_config_vars.png)
 
 
-  4. Link your GitHub account and connect the application to the repository you created.
+  6. Link your GitHub account and connect the application to the repository you created.
 
-      - ![Link GitHub account]
+  ![An image of the linking Heroku to GitHub account](documentation/heroku_deployment.png)
 
-    Click "Deploy Branch":
+  ![An image of deploying main branch in Heroku](documentation/heroku_deployment_branch.png)
 
-      - ![Deploy Branch]
+  7. Click "view" to launch the application inside a web page.
 
-      - Wait for the completion of the deployment.
+  ![An image of the view application button in Heroku](documentation/heroku_view_app.png)
 
-      - ![Deploying Branch]
 
-    5. Click "Open app" to launch the application inside a web page.
 
 ## Future Improvements
-- Addition of username to increase engagement with the siter user, incorporate username into the print statements i.e. "See you next time User1234"
-- Addition of more categories for users to pick from i.e. football players, countries, clothing brands to increase to engage with more users
+- Addition of username to increase engagement with the siter user, incorporate username into the print statements. For example, "See you next time User1234".
+- Addition of more categories for users to pick from i.e. football players, countries, clothing brands to increase to engage with more users.
 - Remind the user of category chosen i.e. "Movie to be guessed: _ _ _" or "Flower to be guessed: _ _ _"
+- Store previously guessed words to prevent repetition,; for players cycling through words, keep track of how many words have been guessed correctly and how many have been guessed incorrectly.
 
 ## Credits
 
