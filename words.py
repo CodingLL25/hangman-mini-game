@@ -1,4 +1,5 @@
-# Words for the hangman game
+"""Words to be utilised in the hangman game"""
+
 hangman_words = {
     "animals": [
         "elephant",
