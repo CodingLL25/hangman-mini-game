@@ -92,7 +92,7 @@ Overview provided below:
 
 ## Technologies Used
 
-### Languages: (DOUBLE CHECK)
+### Languages:
 - [Python 3.12.2](https://www.python.org/downloads/release/python-3122/): used to anchor the project and direct all 
 application behavior
 
@@ -111,9 +111,17 @@ application behavior
 - [Git](https://git-scm.com/) was used for the version control of the website.
 - [GitHub](https://github.com/) was used to host the code of the website.
 - [amiresponsive](https://codingll25.github.io/Formula-One-Memory-Card-Game/) was used to generate the responsive mockup
+- [heroku](https://dashboard.heroku.com/apps)for deploying a mock terminal for the program.
+- [CI Linter](https://pep8ci.herokuapp.com/) for validating the code.
+- [MS Snipping Tool](https://apps.microsoft.com/detail/9mz95kl8mr0l?hl=en-us&gl=US) for png images captured within the README file.
 
 ## Testing
-### Manual testing
+## Bugs
+### Solved bugs
+- Movies within "words.py" are captialized, meaning the first letter of the word was not recognized within the code, resulting in the incorrect error messages appearing when the correct letter was entered. This was fixed by utilizing "word.lower()"
+- Looping back to see the main function upon winning or losing the game was not working when "enter" was selected. 
+
+### Manual testing (TO BE FINALISED)
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
 | Introduction message | Enter 1 | Instructions should appear above game area | Yes | Yes | - |
@@ -183,8 +191,9 @@ the Love Sandwiches Essential Project Walkthrough.
 - Addition of more categories for users to pick from i.e. football players, countries, clothing brands to increase to engage with more users.
 - Remind the user of category chosen i.e. "Movie to be guessed: _ _ _" or "Flower to be guessed: _ _ _"
 - Store previously guessed words to prevent repetition,; for players cycling through words, keep track of how many words have been guessed correctly and how many have been guessed incorrectly.
+- Use of os clear with the play game function to improve usability by preventing the need to scroll.
 
 ## Credits
 
 ## Acknowledgements
-  - [Iuliia Konovalova](https://github.com/IuliiaKonovalova) for being a wonderful mentor throughout this process.
+  - [Iuliia Konovalova](https://github.com/IuliiaKonovalova) for being a wonderful mentor throughout this process, and for providing clear guidance for this submission.
