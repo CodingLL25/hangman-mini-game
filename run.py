@@ -91,8 +91,7 @@ def play_game(word):
                     print(
                         Fore.RED
                         + f"""
-                Incorrect guess! '{guess}' is not in the word, try again...
-
+Incorrect guess! '{guess}' is not in the word, try again...
                 {Fore.RESET + hangman_stage[7 - lives]}"""
                     )
 
