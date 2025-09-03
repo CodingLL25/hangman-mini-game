@@ -1,4 +1,5 @@
-import random  # dont need to import the whole thing, could only import choice
+import random
+import os
 from colorama import Fore
 from words import hangman_words
 from stages import hangman_stage
@@ -22,7 +23,9 @@ You'll need to choose a category of words to play from...
 Categories of words available:
     1: types of animals
     2: movie
-    3: types of flowers"""
+    3: types of flowers
+
+"""
         )
 
         category_choice = input("Choose your category (1, 2 or 3):\n").strip()
@@ -35,7 +38,9 @@ Categories of words available:
                 length = " _ " * len(word)
                 print(
                     Fore.CYAN
-                    + f"""You chose {selected_category}
+                    + f"""
+
+You chose {selected_category}
 
 Word to be guessed (no. of letters: {len(word)}): {length}\n"""
                 )
@@ -54,6 +59,7 @@ def play_game(word):
     Checks if user guess is the the word generated in generate_word, if yes
     reveals the letter. If no, one life lost and part of the hangman is built
     """
+
     guessed_letters = []
     lives = 7
     game_won = False
@@ -132,8 +138,10 @@ def main():
         if choice.isdigit():
             chosen_step = int(choice)
             if chosen_step == 1:
+                os.system("cls" if os.name == "nt" else "clear")
                 game_instructions()
             elif chosen_step == 2:
+                os.system("cls" if os.name == "nt" else "clear")
                 word = generate_word()
                 word.lower()
                 print(Fore.RESET + hangman_stage[0])
