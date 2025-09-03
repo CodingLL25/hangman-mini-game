@@ -14,7 +14,7 @@ Overview provided below:
   1. Click this "[link](https://hangman-mini-game-365dbf261cd0.herokuapp.com/)".
   2. As soon as the page has loaded, click "RUN PROGRAM".
   3. Enter a number, from 1 - 3 to proceed. 
-  - If you've entered 1, the instructions will appear, and then you will be asked to choose a category.
+  - If you've entered 1, the instructions will appear. Once you've read the instructions, the same input is shown to proceed (1: instructions, 2: proceed to game, 3: exit the game)
   - If you've entered 2, you will skip over the instructions and be asked to choose a category.
   - If you've entered 3, you will exit the game.
   4. Enter a number from 1 to 3, 1 for animals, 2 for movies and 3 for flowers.
@@ -29,14 +29,14 @@ Overview provided below:
 ## User Stories
 ### First Time Visiter Goals:
   __As a First Time Visitor...__
-  - I want to be able to understand the programs primary purpose
-  - I want to be able to navigate through the program easily 
-  - I want to be able to interact with the program with ease
-  - I want to see visual effects to stay engaged (i.e. use of colors)
-  - I want to be kept up to date of my progress (correctly guessed letters, incorrect guesses)
+  - I want to be able to understand the programs primary purpose.
+  - I want to be able to navigate through the program easily.
+  - I want to be able to interact with the program with ease.
+  - I want to see visual effects to stay engaged (i.e. use of colors).
+  - I want to be kept up to date of my progress (correctly guessed letters, incorrect guesses).
 ### Frequent Visitor Goals:
   __As Frequent Visitor...__
-  - I want to be able to guess different words
+  - I want to be able to guess different words.
 
 ## Features
   - __When the program is loaded__
@@ -93,7 +93,7 @@ Overview provided below:
 ## Technologies Used
 
 ### Languages:
-- [Python 3.12.2](https://www.python.org/downloads/release/python-3122/): used to anchor the project and direct all 
+- [Python 3.13.2](https://www.python.org/downloads/release/python-3132/): used to anchor the project and direct all 
 application behavior
 
 ### Frameworks/Libraries, Programmes and Tools:
@@ -101,7 +101,7 @@ application behavior
 
 ##### Standard library imports:
 
-- [random](https://docs.python.org/3/library/random.html) was used to implement pseudo-random number generation.
+- [random](https://docs.python.org/3/library/random.html) was used to choose a random word from the category.
 
 ##### Third-party imports:
 - [Colorama](https://pypi.org/project/colorama/) was used to add colors and styles to the project.
@@ -119,13 +119,13 @@ application behavior
 ## Bugs
 ### Solved bugs
 - Movies within "words.py" are captialized, meaning the first letter of the word was not recognized within the code, resulting in the incorrect error messages appearing when the correct letter was entered. This was fixed by utilizing "word.lower()"
-- Looping back to see the main function upon winning or losing the game was not working when "enter" was selected. 
+- Looping back to see the main function upon winning or losing the game was not working when "enter" was selected.
 
-### Manual testing (TO BE FINALISED)
+### Manual testing
 | feature | action | expected result | tested | passed | comments |
 | --- | --- | --- | --- | --- | --- |
-| Introduction message | Enter 1 | Instructions should appear above game area | Yes | Yes | - |
-| Introduction message | Enter 2 | Game area should appear| Yes | Yes | - |
+| Introduction message | Enter 1 | Instructions should appear| Yes | Yes | - |
+| Introduction message | Enter 2 | Input for choosing category should appear| Yes | Yes | - |
 | Introduction message | Enter 3 | Exit game message should appear in red | Yes | Yes | - |
 | Introduction message | Entering a letter or != 1/2/3| Error message should appear | Yes | Yes | - |
 | Choosing category for playing | Enter 1/2/3 | Hangman stage built alongside word to be guessed| Yes | Yes | - |
@@ -134,6 +134,13 @@ application behavior
 | Choosing category for playing | Enter 3 | Confirmation that flowers has been selected in blue | Yes | Yes | - |
 | Choosing category for playing | Enter 3 | Confirmation that flowers has been selected in blue | Yes | Yes | - |
 | Choosing category for playing  | Entering a letter or != 1/2/3| Error message should appear | Yes | Yes | - |
+| Guessing the word | Entering a letter | Letter should be added to "Guessed letters" | Yes | Yes | - |
+| Guessing the word | Entering a letter in the word| Green message should appear and reveal letter in word| Yes | Yes | - |
+| Guessing the word | Entering a letter not in the word| Red message should appear confirming incorrect guess and hangman builds (one body part)| Yes | Yes | - |
+| Guessing the word | Entering a letter which has already been guessed | Red message should appear reminding user this letter has already been guessed | Yes | Yes | - |
+| Guessing the word | All letters have been guessed | Green message should appear confirming the game has been won | Yes | Yes | - |
+| Guessing the word | All lives have been used and man has been hung | Red message should appear confirming the game has been lost | Yes | Yes | - |
+| Guessing the word | Win or lose the game | Input to be shown to loop back to main menu | Yes | Yes | - |
 
 ### Validation
 Code was passed through [CI Python Linter](https://pep8ci.herokuapp.com/#) with no errors.
@@ -205,6 +212,11 @@ the Love Sandwiches Essential Project Walkthrough.
 - Use of os clear with the play game function to improve usability by preventing the need to scroll.
 
 ## Credits
+- [AskPython](https://www.askpython.com/python/examples/hangman-game-in-python) and [GeeksGorGeeks](https://www.geeksforgeeks.org/python/hangman-game-python/) for a step-by-step guide on creating a hangman game using python language.
+- [W3Schools](https://www.w3schools.com/) for providing tutorials on python.
+- [Iuliia Konovalova](https://github.com/IuliiaKonovalova/madlib_with_python) for guidance throughout, and for providing an example of how to write a README file for this python project.
+- [Microsoft Copilot](https://copilot.microsoft.com/chats/56DMeNEbW87deqebaB8W4) for generating the random lists of words for animals, movies and flowers.
+
 
 ## Acknowledgements
   - [Iuliia Konovalova](https://github.com/IuliiaKonovalova) for being a wonderful mentor throughout this process, and for providing clear guidance for this submission.
