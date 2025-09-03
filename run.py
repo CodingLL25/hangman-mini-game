@@ -114,10 +114,9 @@ Incorrect guess! '{guess}' is not in the word, try again...
     else:
         print(Fore.RED + f"Better luck next time! The word was: {word}.\n")
 
-    if game_won is True or lives == 0:
-        main_menu = input(Fore.RESET + "Enter any key to go to main menu:\n")
-        if main_menu:
-            main()
+    if game_won or lives == 0:
+        input(Fore.RESET + "Enter any key to go to main menu:\n")
+        main()
 
 
 def main():
