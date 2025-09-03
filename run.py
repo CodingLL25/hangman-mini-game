@@ -19,7 +19,10 @@ def generate_word():
             + """
 You'll need to choose a category of words to play from...
 
-Categories of words available: 1-animals, 2-movies, 3-flowers\n"""
+Categories of words available:
+    1: types of animals
+    2: movie
+    3: types of flowers"""
         )
 
         category_choice = input("Choose your category (1, 2 or 3):\n").strip()
