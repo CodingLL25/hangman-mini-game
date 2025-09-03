@@ -15,7 +15,7 @@ def welcome_message():
 ===============================================================================
 
 
-Enter 1 to see the instructions, 2 to start the game, or 3 to exit the game.\n
+Enter 1 to see the instructions, 2 to start the game, or 3 to exit the game.
 """
     )
 
