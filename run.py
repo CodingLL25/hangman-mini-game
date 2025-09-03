@@ -59,7 +59,7 @@ def play_game(word):
     game_won = False
 
     while lives > 0:
-        print("------------------------------------------------\n")
+        print("*********************************************************\n")
         # Allow user to enter a letter
         guess = input("Enter your guess (one letter only):\n").strip().lower()
 
