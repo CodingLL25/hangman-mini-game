@@ -1,3 +1,5 @@
+"""Hangman stages for the game, starts from no lives lost to all lives lost"""
+
 hangman_stage = [
     """
     []==============
