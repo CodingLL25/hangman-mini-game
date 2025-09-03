@@ -1,7 +1,5 @@
-import random
-
+import random  # dont need to import the whole thing, could only import choice
 from colorama import Fore
-
 from words import hangman_words
 from stages import hangman_stage
 from constants import *
