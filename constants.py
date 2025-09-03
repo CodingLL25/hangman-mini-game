@@ -39,5 +39,7 @@ Welcome to Hangman! Game instructions shown below:
     correctly before your hangman has built, and you've won the game!
 
     Time to start playing...
+
+Enter 1 to see the instructions, 2 to start the game, or 3 to exit the game.
     """
     )
