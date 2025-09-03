@@ -30,7 +30,7 @@ Welcome to Hangman! Game instructions shown below:
 
     1. Choose a category to play from based on your interests.
 
-    2. A random word will be generated from this category, you'll need to guess 
+    2. A random word will be generated from this category, you'll need to guess
     the word one letter at a time, before you run out of lives.
 
     3. For each incorrect answer, parts of your hangman will appear.
