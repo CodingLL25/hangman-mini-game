@@ -141,7 +141,8 @@ def main():
             elif chosen_step == 2:
                 os.system("cls" if os.name == "nt" else "clear")
                 word = generate_word()
-                word.lower()
+                word = word.lower()
+                print(word)
                 print(Fore.RESET + hangman_stage[0])
                 play_game(word)
                 break
