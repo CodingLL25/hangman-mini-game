@@ -17,6 +17,8 @@ def generate_word():
         print(
             Fore.RESET
             + """
+You'll need to choose a category of words to play from...
+
 Categories of words available: 1-animals, 2-movies, 3-flowers\n"""
         )
 
