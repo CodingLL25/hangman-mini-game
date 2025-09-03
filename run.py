@@ -142,7 +142,6 @@ def main():
                 os.system("cls" if os.name == "nt" else "clear")
                 word = generate_word()
                 word = word.lower()
-                print(word)
                 print(Fore.RESET + hangman_stage[0])
                 play_game(word)
                 break
