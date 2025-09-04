@@ -8,7 +8,8 @@ from constants import *
 
 def clear_terminal():
     """Function to clear the terminal"""
-    os.system("cls" if os.name == "nt" else "clear")
+    command = "cls" if os.name == "nt" else "clear"
+    os.system(command)
 
 
 def generate_word():
@@ -121,6 +122,7 @@ Incorrect guess! '{guess}' is not in the word, try again...
 
     if game_won or lives == 0:
         input(Fore.RESET + "Enter any key and/or enter to go to main menu:\n")
+        clear_terminal()
         main()
 
 
@@ -132,7 +134,6 @@ def main():
     If 2 selected, user asked to choose word category
     If 3, user exits the game
     """
-    clear_terminal()
     welcome_message()
 
     while True:
