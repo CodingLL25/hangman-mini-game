@@ -116,7 +116,6 @@ Incorrect guess! '{guess}' is not in the word, try again...
 
     if game_won or lives == 0:
         input(Fore.RESET + "Enter any key and/or enter to go to main menu:\n")
-        os.system("cls" if os.name == "nt" else "clear")
         main()
 
 
@@ -128,7 +127,7 @@ def main():
     If 2 selected, user asked to choose word category
     If 3, user exits the game
     """
-
+    os.system("cls" if os.name == "nt" else "clear")  # not working
     welcome_message()
 
     while True:
