@@ -7,6 +7,7 @@ from constants import *
 
 
 def clear_terminal():
+    """Function to clear the terminal"""
     os.system("cls" if os.name == "nt" else "clear")
 
 
