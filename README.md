@@ -83,7 +83,6 @@ Overview provided below:
     revealed in the word.
     ![hangman_correct_guess](documentation/correct_guess.png)
     
-  
 
 ## Flowchart
   The flowchart represents the logic of the program
@@ -120,6 +119,8 @@ application behavior
 ### Solved bugs
 - Movies within "words.py" are captialized, meaning the first letter of the word was not recognized within the code, resulting in the incorrect error messages appearing when the correct letter was entered. This was fixed by utilizing "word.lower()"
 - Looping back to see the main function upon winning or losing the game was not working when "enter" was selected.
+### Unsolved bugs
+- Clear terminal function using os. not clearing terminal upon game completion (following win or lose). Terminal clears within VS Code but not the deployed site.
 
 ### Manual testing
 | feature | action | expected result | tested | passed | comments |
@@ -202,7 +203,20 @@ the Love Sandwiches Essential Project Walkthrough.
 
   ![An image of the view application button in Heroku](documentation/heroku_view_app.png)
 
+### Additional deployment information
+- Empty line included at the end of each .py file.
 
+run.py:
+  ![An image of the empty line in run.py](documentation/empty_line_run_py.png)
+
+words.py:
+  ![An image of the empty line in words.py](documentation/empty_line_words_py.png)
+
+constants.py:
+![An image of the empty line in constants.py](documentation/empty_line_constants_py.png)
+
+stages.py:
+  ![An image of the empty line in stage.py](documentation/empty_line_stages_py.png)
 
 ## Future Improvements
 - Addition of username to increase engagement with the siter user, incorporate username into the print statements. For example, "See you next time User1234".
@@ -216,6 +230,7 @@ the Love Sandwiches Essential Project Walkthrough.
 - [W3Schools](https://www.w3schools.com/) for providing tutorials on python.
 - [Iuliia Konovalova](https://github.com/IuliiaKonovalova/madlib_with_python) for guidance throughout, and for providing an example of how to write a README file for this python project.
 - [Microsoft Copilot](https://copilot.microsoft.com/chats/56DMeNEbW87deqebaB8W4) for generating the random lists of words for animals, movies and flowers.
+- [agirlamonggeeks](https://agirlamonggeeks.com/how-to-clear-python-terminal/) for the clear terminal function.
 
 
 ## Acknowledgements
