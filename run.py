@@ -7,7 +7,7 @@ from constants import *
 
 
 def clear_terminal():
-    """Function to clear the terminal"""
+    """Function to clear the terminal taken from agirlamonggeeks"""
     command = "cls" if os.name == "nt" else "clear"
     os.system(command)
 
@@ -117,13 +117,16 @@ Incorrect guess! '{guess}' is not in the word, try again...
 
     if game_won:
         print(Fore.GREEN + f"""Congratulations, the word was '{word}'!\n""")
+        game_end()
     else:
         print(Fore.RED + f"Better luck next time! The word was: {word}.\n")
+        game_end()
 
-    if game_won or lives == 0:
-        input(Fore.RESET + "Enter any key and/or enter to go to main menu:\n")
-        clear_terminal()
-        main()
+
+def game_end():
+    input(Fore.RESET + "Enter any key and/or enter to go to main menu:\n")
+    clear_terminal()
+    main()
 
 
 def main():
