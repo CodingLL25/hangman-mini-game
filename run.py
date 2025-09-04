@@ -6,6 +6,10 @@ from stages import hangman_stage
 from constants import *
 
 
+def clear_terminal():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
 def generate_word():
     """
     Allow player to input category of interest.
@@ -116,9 +120,8 @@ Incorrect guess! '{guess}' is not in the word, try again...
 
     if game_won or lives == 0:
         input(Fore.RESET + "Enter any key and/or enter to go to main menu:\n")
-        if input:
-            os.system("cls" if os.name == "nt" else "clear")
-            main()
+        clear_terminal()
+        main()
 
 
 def main():
@@ -138,10 +141,10 @@ def main():
         if choice.isdigit():
             chosen_step = int(choice)
             if chosen_step == 1:
-                os.system("cls" if os.name == "nt" else "clear")
+                clear_terminal()
                 game_instructions()
             elif chosen_step == 2:
-                os.system("cls" if os.name == "nt" else "clear")
+                clear_terminal()
                 word = generate_word()
                 word = word.lower()
                 print(Fore.RESET + hangman_stage[0])
