@@ -63,7 +63,7 @@ def play_game(word):
     Shows input for user to input their letter; with validation to prevent
     numbers / multiple letters  / already guessed letters being entered
     Checks if user guess is the the word generated in generate_word, if yes
-    reveals the letter. If no, one life lost and part of the hangman is built
+    reveals the letter. If no, one life lost and part of the hangman is built.
     """
 
     guessed_letters = []
@@ -124,6 +124,7 @@ Incorrect guess! '{guess}' is not in the word, try again...
 
 
 def game_end():
+    """Upon game completion, show input to loop back to main menu"""
     input(Fore.RESET + "Enter any key and/or enter to go to main menu:\n")
     clear_terminal()
     main()
@@ -164,4 +165,5 @@ def main():
 
 
 if __name__ == "__main__":
+    """Run the main function"""
     main()
